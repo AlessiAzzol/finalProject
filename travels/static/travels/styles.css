@@ -9,31 +9,28 @@ body{
 
 .cards{
 	height: 400px;
-    width: 300px;
-    transform: translate(-50%, -50%);  
-    transform-style: preserve-3d;
     perspective: 600px;
-    transition: .5s;
+	transition: .5s;
+	margin: 0 5% 10% 0;
 }
 
 .cards:hover .card-front{
-	transform: rotateX(-180deg)
+	transform: rotateY(-180deg)
 }
 
 .cards:hover .card-back{
-	transform: rotateX(0deg)
+	transform: rotateY(0deg)
 }
 
 .card-front{
     height: 100%;
     width: 100%;
-    background-color: blue;
-    background-position: 50% 50%;
-    position: absolute;
+	position: absolute;
+	background-size: contain;
     top: 0;
     left: 0;
     backface-visibility: hidden;
-    transform: rotateX(0deg);
+    transform: rotateY(0deg);
 	transition: .5s;
 }
 
@@ -45,7 +42,7 @@ body{
     left: 0;
     background-color: #000000;
     backface-visibility: hidden;
-    transform: rotateX(180deg);
+    transform: rotateY(180deg);
     transition: .5s;
     color: #ffffff;
     text-align: center;
