@@ -4,19 +4,14 @@ document.addEventListener('DOMContentLoaded', function() {
 	.then(response => response.json())
 	.then(info => {	
 		for(i=0; i<info.links.length; i++){
-			if( i!=0 && i % 3 == 0){
-				const line = document.createElement('div') ;
-				Object.assign(line, {
-					className: "w-100"
-				})	
-				document.querySelector('#pictures').append(line);
-			}
-			const scene  = document.createElement('div') ;
-			Object.assign(scene, {
-				className: "scene col"
+			const cards  = document.createElement('div') ;
+			Object.assign(cards, {
+				className: "cards col-md-3 offset-md-3",
+				id: `${info.info[i].name}`
 			})
-			scene.innerHTML = `<div id="${info.info[i].name}" class="card" ><div id="front" class="front"><img src="${info.links[i].mobile}"></div><div class="back">${info.info[i].name}</div></div>`;
-			document.querySelector('#pictures').append(scene);
+			cards.innerHTML = `<div class="card-front"></div><div class="card-back"><h2>${info.info[i].name}</h2></div></div>`;
+			document.querySelector('#pictures').append(cards);
+			cards.querySelector(".card-front").style.backgroundImage = `url(${info.links[i].mobile})`;
 		}
 		
 	});
