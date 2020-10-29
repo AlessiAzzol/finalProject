@@ -28,11 +28,11 @@ def login_view(request):
             login(request, user)
             return HttpResponseRedirect(reverse("index"))
         else:
-            return render(request, "travels/login.html", {
+            return render(request, "travels/index.html", {"page": "login",
                 "message": "Invalid username and/or password."
             })
     else:
-        return render(request, "travels/login.html")
+        return render(request, "travels/index.html", { "page": "login" })
 
 
 def logout_view(request):
@@ -49,7 +49,7 @@ def register(request):
         password = request.POST["password"]
         confirmation = request.POST["confirmation"]
         if password != confirmation:
-            return render(request, "travels/register.html", {
+            return render(request, "travels/index.html", {"page": "register", 
                 "message": "Passwords must match."
             })
 
@@ -58,13 +58,13 @@ def register(request):
             user = User.objects.create_user(username, email, password)
             user.save()
         except IntegrityError:
-            return render(request, "travels/register.html", {
+            return render(request, "travels/index.html", {"page": "register", 
                 "message": "Username already taken."
             })
         login(request, user)
         return HttpResponseRedirect(reverse("index"))
     else:
-        return render(request, "travels/register.html")
+        return render(request, "travels/index.html", { "page": "register" })
 
 
 def getPhotos(request):

@@ -3,4 +3,11 @@ from django.db import models
 
 
 class User(AbstractUser):
-    pass
+
+    def serialize(self):
+        return {
+            "username": self.username,
+            "password": self.password,
+            "email": self.email,
+            "id": self.id,           
+        }

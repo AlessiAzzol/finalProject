@@ -1,0 +1,90 @@
+$button-color: #1ab188;
+$text-color: white;
+$background-color: black;
+
+#da-metterePicture{
+	padding: 5%;
+}
+
+#register, #login{
+    margin: 5%;
+    background-color: $background-color;
+}
+
+.logo{
+	width: 150px;
+  } 
+
+.tab-group {
+    list-style: none;
+    padding:0;
+	margin:0 0 40px 0;
+	&:after {
+		content: "";
+		display: table;
+		clear: both;
+	}
+	a {
+		display:block;
+		text-decoration:none;
+		padding:15px;
+		background:rgba(#a0b3b0,.25);
+		color:#a0b3b0;
+		font-size:20px;
+		float:left;
+		width:50%;
+		text-align:center;
+		transition:.5s ease;
+		&:hover {
+			background: $button-color;
+			color: $text-color;
+		}
+	}
+	.active {
+		background: $button-color;
+		color: $text-color;
+	}
+}
+
+body{
+	background: url('foto viaggi/003.jpg');
+	background-repeat: no-repeat;
+}
+
+.cards{
+	height: 400px;
+    perspective: 600px;
+	transition: .5s;
+	margin: 0 5% 10% 0;
+	&:hover .card-front{
+		transform: rotateY(-180deg)
+	}
+	&:hover .card-back{
+		transform: rotateY(0deg)
+	}
+	.card-front{
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		background-size: contain;
+		top: 0;
+		left: 0;
+		backface-visibility: hidden;
+		transform: rotateY(0deg);
+		transition: .5s;
+	}
+	.card-back{
+		height: 100%;
+		width: 100%;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-color: $background-color;
+		backface-visibility: hidden;
+		transform: rotateY(180deg);
+		transition: .5s;
+		color: $text-color;
+		text-align: center;
+	}
+}
+

@@ -1,0 +1,14 @@
+
+Hope you enjoy your new logo, here are the people that
+made your beautiful logo happen :)
+font name: Domine-Regular
+font link: https://fonts.google.com/specimen/Domine
+font author: Impallari Type
+font author site: https://twitter.com/pabloimpallari
+
+
+icon designer: Ale Estrada
+icon designer link: /ale-es
+        
+{"bg":"#EFFBEE","icon-gradient-0":"#00EEE1","icon-gradient-1":"#FFD233","font":"#1F321D","slogan":"#334631"}
+      

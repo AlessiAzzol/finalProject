@@ -6,10 +6,44 @@
         <title>{% block title %}Travels{% endblock %}</title>
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
         <link href="{% static 'travels/styles.css' %}" rel="stylesheet">        
-        {% block script %}
-        {% endblock %}
+        <script src="{% static 'travels/index.js' %}"></script>
     </head>
     <body>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="logo navbar-brand" href="{% url 'index' %}">
+                <img src="..\..\static\travels\foto viaggi\Travels-logo\vector\default-monochrome.svg">
+            </a>
+          
+            <div>
+              <ul class="navbar-nav mr-auto">
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" id="profile"  href="#" ><strong>{{ user.username }}</strong></a>
+                    </li>
+                {% endif %}
+                <li class="nav-item">
+                  <a class="nav-link" id="All_posts" href="#">Profilo</a>
+                </li>
+                {% if user.is_authenticated %}
+                    <li class="nav-item">
+                        <a class="nav-link" id="Following" href="#">Da decidere</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link"  href="{% url 'logout' %}">Log Out</a>
+                    </li>
+                {% else %}
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'login' %}">Log In</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'register' %}">Register</a>
+                    </li>
+                {% endif %}
+              </ul>
+            </div>
+        </nav>
+
         {% block body %}
     
         {% endblock %}

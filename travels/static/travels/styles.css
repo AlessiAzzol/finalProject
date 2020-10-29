@@ -1,49 +1,88 @@
-#da-metterePicture{
-	padding: 5%;
+#da-metterePicture {
+  padding: 5%;
 }
 
-body{
-	background: url('foto viaggi/003.jpg');
-	background-repeat: no-repeat;
+#register, #login {
+  margin: 5%;
+  background-color: black;
 }
 
-.cards{
-	height: 400px;
-    perspective: 600px;
-	transition: .5s;
-	margin: 0 5% 10% 0;
+.logo {
+  width: 150px;
 }
 
-.cards:hover .card-front{
-	transform: rotateY(-180deg)
+.tab-group {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+.tab-group:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+.tab-group a {
+  cursor: pointer;
+  display: block;
+  text-decoration: none;
+  padding: 15px;
+  background: rgba(160, 179, 176, 0.25);
+  color: #a0b3b0;
+  font-size: 20px;
+  float: left;
+  width: 50%;
+  text-align: center;
+  transition: 0.5s ease;
+}
+.tab-group a:hover {
+  background: #1ab188;
+  color: white;
+}
+.tab-group .active {
+  background: #1ab188;
+  color: white;
 }
 
-.cards:hover .card-back{
-	transform: rotateY(0deg)
+body {
+  background: url("foto viaggi/003.jpg");
+  background-repeat: no-repeat;
 }
 
-.card-front{
-    height: 100%;
-    width: 100%;
-	position: absolute;
-	background-size: contain;
-    top: 0;
-    left: 0;
-    backface-visibility: hidden;
-    transform: rotateY(0deg);
-	transition: .5s;
+.cards {
+  height: 400px;
+  perspective: 600px;
+  transition: 0.5s;
+  margin: 0 5% 10% 0;
+}
+.cards:hover .card-front {
+  transform: rotateY(-180deg);
+}
+.cards:hover .card-back {
+  transform: rotateY(0deg);
+}
+.cards .card-front {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  background-size: contain;
+  top: 0;
+  left: 0;
+  backface-visibility: hidden;
+  transform: rotateY(0deg);
+  transition: 0.5s;
+}
+.cards .card-back {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: black;
+  backface-visibility: hidden;
+  transform: rotateY(180deg);
+  transition: 0.5s;
+  color: white;
+  text-align: center;
 }
 
-.card-back{
-    height: 100%;
-    width: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-color: #000000;
-    backface-visibility: hidden;
-    transform: rotateY(180deg);
-    transition: .5s;
-    color: #ffffff;
-    text-align: center;
-}
+/*# sourceMappingURL=styles.css.map */
