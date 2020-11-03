@@ -78,3 +78,16 @@ def getPhotos(request):
         img = img_info.get("photos")[0].get("image")
         pictures.append(img)
     return JsonResponse({"links": pictures, "info":rand_list }, safe=False)
+
+
+def city(request):
+    city = username = request.POST["city"]
+    response = requests.get("https://api.teleport.org/api/cities/?search="+ str(city)).json()
+    matching_cities = response.get("_embedded").get("city:search-results")
+    full_name = [i.get("matching_full_name") for i in matching_cities]
+    links = [i.get("_links") for i in matching_cities]
+    ##my_area = urban_area.get('_links').get('ua:item')
+    ##test = [ i for i in my_area if i.get('name').lower() == city.lower() ]
+    ##links = response.get('_links').get('curies')
+    ##test = [ i for i in urban_area if  i.get('name') == city]
+    return render(request, "travels/city.html", {"city": full_name, "links": links})

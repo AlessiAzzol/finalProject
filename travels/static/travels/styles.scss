@@ -1,6 +1,7 @@
 $button-color: #1ab188;
-$text-color: white;
+$text-color: black;
 $background-color: black;
+$shadow: 10px -10px 5px  rgba(0,0,0,0.3);
 
 #da-metterePicture{
 	padding: 5%;
@@ -53,38 +54,68 @@ body{
 
 .cards{
 	height: 400px;
-    perspective: 600px;
+	perspective: 600px;
 	transition: .5s;
-	margin: 0 5% 10% 0;
-	&:hover .card-front{
-		transform: rotateY(-180deg)
+	margin: 4%;
+	padding: 0;
+	&:hover .card-front{		
+		transform: rotateY(-180deg);
+		
 	}
 	&:hover .card-back{
-		transform: rotateY(0deg)
+		transform: rotateY(0deg);
 	}
-	.card-front{
+	.card-front, .card-back{
+		border: 10px solid white;
 		height: 100%;
 		width: 100%;
-		position: absolute;
 		background-size: contain;
-		top: 0;
-		left: 0;
+		background-repeat: no-repeat;
+		background-color: white;
 		backface-visibility: hidden;
 		transform: rotateY(0deg);
 		transition: .5s;
+		box-shadow: $shadow;
 	}
 	.card-back{
-		height: 100%;
-		width: 100%;
 		position: absolute;
 		top: 0;
 		left: 0;
-		background-color: $background-color;
-		backface-visibility: hidden;
 		transform: rotateY(180deg);
-		transition: .5s;
-		color: $text-color;
-		text-align: center;
+		h2{
+			height: 100%;
+    		padding: 50% 0;
+			color: $text-color;
+			text-align: center;
+		}
 	}
 }
 
+.search-container{
+	margin: 10%;
+	text-align: center;
+	form{
+		height: 60px;
+	}
+	input[type="text"]{
+		width: 90%;
+		height: 100%;
+		float: left;
+		border-radius: 0 0 0 20px;
+		background-color: $button-color;
+		border: unset;
+		box-shadow: $shadow;
+		padding-left: 20px;
+	}
+	input[type="text"]::placeholder{
+    	color: white;
+	}
+	button{
+		background-color: $button-color;
+		width: 10%;
+		height: 100%;
+		border: unset;
+		border-radius: 0 20px 0 0;
+		box-shadow: $shadow;
+	}
+}

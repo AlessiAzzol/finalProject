@@ -16,13 +16,14 @@
   padding: 0;
   margin: 0 0 40px 0;
 }
+
 .tab-group:after {
   content: "";
   display: table;
   clear: both;
 }
+
 .tab-group a {
-  cursor: pointer;
   display: block;
   text-decoration: none;
   padding: 15px;
@@ -32,15 +33,18 @@
   float: left;
   width: 50%;
   text-align: center;
-  transition: 0.5s ease;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
 }
+
 .tab-group a:hover {
   background: #1ab188;
-  color: white;
+  color: black;
 }
+
 .tab-group .active {
   background: #1ab188;
-  color: white;
+  color: black;
 }
 
 body {
@@ -50,39 +54,100 @@ body {
 
 .cards {
   height: 400px;
-  perspective: 600px;
-  transition: 0.5s;
-  margin: 0 5% 10% 0;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  -webkit-transition: .5s;
+  transition: .5s;
+  margin: 4%;
+  padding: 0;
 }
+
 .cards:hover .card-front {
-  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
 }
+
 .cards:hover .card-back {
-  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
 }
-.cards .card-front {
+
+.cards .card-front, .cards .card-back {
+  border: 10px solid white;
   height: 100%;
   width: 100%;
-  position: absolute;
   background-size: contain;
-  top: 0;
-  left: 0;
-  backface-visibility: hidden;
-  transform: rotateY(0deg);
-  transition: 0.5s;
+  background-repeat: no-repeat;
+  background-color: white;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
 }
+
 .cards .card-back {
-  height: 100%;
-  width: 100%;
   position: absolute;
   top: 0;
   left: 0;
-  background-color: black;
-  backface-visibility: hidden;
-  transform: rotateY(180deg);
-  transition: 0.5s;
-  color: white;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+
+.cards .card-back h2 {
+  height: 100%;
+  padding: 50% 0;
+  color: black;
   text-align: center;
 }
 
+.search-container {
+  margin: 10%;
+  text-align: center;
+}
+
+.search-container form {
+  height: 60px;
+}
+
+.search-container input[type="text"] {
+  width: 90%;
+  height: 100%;
+  float: left;
+  border-radius: 0 0 0 20px;
+  background-color: #1ab188;
+  border: unset;
+  -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+  padding-left: 20px;
+}
+
+.search-container input[type="text"]::-webkit-input-placeholder {
+  color: white;
+}
+
+.search-container input[type="text"]:-ms-input-placeholder {
+  color: white;
+}
+
+.search-container input[type="text"]::-ms-input-placeholder {
+  color: white;
+}
+
+.search-container input[type="text"]::placeholder {
+  color: white;
+}
+
+.search-container button {
+  background-color: #1ab188;
+  width: 10%;
+  height: 100%;
+  border: unset;
+  border-radius: 0 20px 0 0;
+  -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+}
 /*# sourceMappingURL=styles.css.map */
