@@ -1,59 +1,50 @@
-.main {
-  /* Fill the available space */
+.parallax {
   height: 100vh;
-  /* Make the children of the element closer to the viewport */
-  perspective: 2px;
-  /* Hide the overflow */
   overflow-x: hidden;
+  overflow-y: auto;
+  -webkit-perspective: 2px;
+          perspective: 2px;
 }
 
-/* General styling, not necessarily related to parallax effect  */
-.section {
+.parallax__group {
   position: relative;
-  display: flex;
   height: 100%;
+  -webkit-transform-style: preserve-3d;
+  transform-style: preserve-3d;
 }
 
-/* Different background colors for demo purpose */
-.static-one {
-  background-image: url("foto viaggi/background/moon.png");
+.parallax__group .layer {
+  position: absolute;
+  background-size: contain;
   background-repeat: no-repeat;
-  transform: translateZ(-8px) scale(2);
-  background-position: right;
+  background-position: bottom left;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
 }
 
-.static-two {
-  background-image: url("foto viaggi/background/balloons.png");
-  background-repeat: no-repeat;
-  transform: translateZ(-4px) scale(3);
-  z-index: 2;
-}
-
-.static-three {
-  background-image: url("foto viaggi/background/ground.png");
-  background-repeat: no-repeat;
-  transform: translateZ(-2px) scale(2);
-  /* Set the parallax section before the other elements. */
+.parallax__group .static-one {
+  background-image: url("foto viaggi/background/assets/test/Layer03.png");
+  -webkit-transform: translate3d(0, 100%, 0) scale(1);
+          transform: translate3d(0, 100%, 0) scale(1);
   z-index: 3;
 }
 
-/*
-.static-four {
-	background-image: url('foto viaggi/background/Layer4.png');
-	background-repeat: no-repeat;
-	transform: translateZ(-1px) scale(2);
-	// Set the parallax section before the other elements.
-	z-index: 4;
+.parallax__group .static-two {
+  background-image: url("foto viaggi/background/assets/test/Layer02.png");
+  -webkit-transform: translate3d(0, 100%, -3px) scale(2);
+          transform: translate3d(0, 100%, -3px) scale(2);
+  z-index: 2;
 }
 
-.static-five {
-	background-image: url('foto viaggi/test/Layer5.png');
-	background-repeat: no-repeat;
-	transform: translateZ(0px) scale(2);
-	// Set the parallax section before the other elements.
-	z-index: 5;
+.parallax__group .static-three {
+  background-image: url("foto viaggi/background/assets/test/Layer01.png");
+  -webkit-transform: translate3d(0, 100%, -10px) scale(3);
+          transform: translate3d(0, 100%, -10px) scale(3);
+  z-index: 1;
 }
-*/
+
 #da-metterePicture {
   padding: 5%;
 }
@@ -72,11 +63,13 @@
   padding: 0;
   margin: 0 0 40px 0;
 }
+
 .tab-group:after {
   content: "";
   display: table;
   clear: both;
 }
+
 .tab-group a {
   display: block;
   text-decoration: none;
@@ -87,35 +80,46 @@
   float: left;
   width: 50%;
   text-align: center;
-  transition: 0.5s ease;
+  -webkit-transition: .5s ease;
+  transition: .5s ease;
 }
+
 .tab-group a:hover {
   background: #1ab188;
   color: black;
 }
+
 .tab-group .active {
   background: #1ab188;
   color: black;
 }
 
 body {
-  background: url("foto viaggi/background/Background.png");
+  background-image: url("foto viaggi/background/assets/Background3.png");
+  background-size: cover;
   background-repeat: no-repeat;
 }
 
 .cards {
   height: 400px;
-  perspective: 600px;
-  transition: 0.5s;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  -webkit-transition: .5s;
+  transition: .5s;
   margin: 4%;
   padding: 0;
 }
+
 .cards:hover .card-front {
-  transform: rotateY(-180deg);
+  -webkit-transform: rotateY(-180deg);
+          transform: rotateY(-180deg);
 }
+
 .cards:hover .card-back {
-  transform: rotateY(0deg);
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
 }
+
 .cards .card-front, .cards .card-back {
   border: 10px solid white;
   height: 100%;
@@ -123,17 +127,24 @@ body {
   background-size: contain;
   background-repeat: no-repeat;
   background-color: white;
-  backface-visibility: hidden;
-  transform: rotateY(0deg);
-  transition: 0.5s;
-  box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
+  -webkit-transition: .5s;
+  transition: .5s;
+  -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
 }
+
 .cards .card-back {
   position: absolute;
   top: 0;
   left: 0;
-  transform: rotateY(180deg);
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
+
 .cards .card-back h2 {
   height: 100%;
   padding: 50% 0;
@@ -145,29 +156,46 @@ body {
   margin: 10%;
   text-align: center;
 }
+
 .search-container form {
   height: 60px;
 }
-.search-container input[type=text] {
+
+.search-container input[type="text"] {
   width: 90%;
   height: 100%;
   float: left;
   border-radius: 0 0 0 20px;
   background-color: #1ab188;
   border: unset;
-  box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
   padding-left: 20px;
 }
-.search-container input[type=text]::placeholder {
+
+.search-container input[type="text"]::-webkit-input-placeholder {
   color: white;
 }
+
+.search-container input[type="text"]:-ms-input-placeholder {
+  color: white;
+}
+
+.search-container input[type="text"]::-ms-input-placeholder {
+  color: white;
+}
+
+.search-container input[type="text"]::placeholder {
+  color: white;
+}
+
 .search-container button {
   background-color: #1ab188;
   width: 10%;
   height: 100%;
   border: unset;
   border-radius: 0 20px 0 0;
-  box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+  -webkit-box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
+          box-shadow: 10px -10px 5px rgba(0, 0, 0, 0.3);
 }
-
 /*# sourceMappingURL=styles.css.map */

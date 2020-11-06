@@ -3,61 +3,46 @@ $text-color: black;
 $background-color: black;
 $shadow: 10px -10px 5px  rgba(0,0,0,0.3);
 
-.main {
-	/* Fill the available space */
+.parallax {
 	height: 100vh;
-	/* Make the children of the element closer to the viewport */
-	perspective: 2px;	
-	/* Hide the overflow */
-	overflow-x: hidden;
+    overflow-x: hidden;
+    overflow-y: auto;
+	perspective: 2px;
 }
 
-/* General styling, not necessarily related to parallax effect  */
-.section {
-	position: relative;
-	display: flex;
-	height: 100%;
-}
-  
-  /* Different background colors for demo purpose */
-.static-one {
-	background-image: url('foto viaggi/background/moon.png');
-	background-repeat: no-repeat;
-	transform: translateZ(-8px) scale(2);
-    background-position: right;
-}
-
-.static-two {
-	background-image: url('foto viaggi/background/balloons.png');
-	background-repeat: no-repeat;
-	transform: translateZ(-4px) scale(3);
-    z-index: 2;
-}
-
-.static-three {
-	background-image: url('foto viaggi/background/ground.png');
-	background-repeat: no-repeat;
-	transform: translateZ(-2px) scale(2);
-	/* Set the parallax section before the other elements. */
-	z-index: 3;
-}
-/*
-.static-four {
-	background-image: url('foto viaggi/background/Layer4.png');
-	background-repeat: no-repeat;
-	transform: translateZ(-1px) scale(2);
-	// Set the parallax section before the other elements.
-	z-index: 4;
+.parallax__group {
+    position: relative;
+    height: 100%;
+    -webkit-transform-style: preserve-3d;
+	transform-style: preserve-3d;
+	.layer {
+		position: absolute;
+		background-size: contain;
+		background-repeat: no-repeat;
+		background-position: bottom left;;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}	
+	
+	.static-one {
+		background-image: url('foto viaggi/background/assets/test/Layer03.png');
+		transform: translate3d(0, 100%, 0) scale(1);
+		z-index: 3;
+	}
+	.static-two {
+		background-image: url('foto viaggi/background/assets/test/Layer02.png');
+		transform: translate3d(0, 100%,-3px) scale(2);
+		z-index: 2;
+	}
+	.static-three {
+		background-image: url('foto viaggi/background/assets/test/Layer01.png');
+		transform: translate3d(0, 100%, -10px) scale(3);
+		z-index: 1;
+	}
 }
 
-.static-five {
-	background-image: url('foto viaggi/test/Layer5.png');
-	background-repeat: no-repeat;
-	transform: translateZ(0px) scale(2);
-	// Set the parallax section before the other elements.
-	z-index: 5;
-}
-*/
 #da-metterePicture{
 	padding: 5%;
 }
@@ -102,9 +87,10 @@ $shadow: 10px -10px 5px  rgba(0,0,0,0.3);
 	}
 }
 
+
 body{
-	//background: url('foto viaggi/003.jpg');
-	background: url('foto viaggi/background/Background.png');
+	background-image: url('foto viaggi/background/assets/Background3.png');
+	background-size: cover;
 	background-repeat: no-repeat;
 }
 

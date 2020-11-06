@@ -57,20 +57,30 @@
     
 
 {% else %}
+    <main class="parallax">  
+        <div class="parallax__group">          
+            <div class="layer static-one"></div>      
+            <div class="layer static-two"></div>
+            <div class="layer static-three"></div>
+            <div class="layer static-four">
+<!--
+                <div id="search-bar" class="search-container">
+                    <form action="{% url 'city' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" placeholder="Search City" name='city' required>
+                        <button type="submit" class="w3-padding w3-xlarge w3-teal"><i class="fa fa-search"></i></button>
+                    </form>
+                </div>
 
-    <div id="search-bar" class="search-container">
-        <form action="{% url 'city' %}" method="post">
-            {% csrf_token %}
-            <input type="text" placeholder="Search City" name='city' required>
-            <button type="submit" class="w3-padding w3-xlarge w3-teal"><i class="fa fa-search"></i></button>
-        </form>
-    </div>
 
+                <div id="da-metterePicture"  class="container">
+                    <div id="pictures" class="row justify-content-between"></div>
 
-    <div id="da-metterePicture"  class="container">
-        <div id="pictures" class="row justify-content-between"></div>
+                </div>-->
+            </div>
 
-    </div>
+        </div>
+    </main>
 {% endif %}
 
 {% endblock %}
