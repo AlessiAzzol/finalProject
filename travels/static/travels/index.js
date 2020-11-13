@@ -6,7 +6,7 @@ document.addEventListener('DOMContentLoaded', function() {
 		for(i=0; i<info.links.length; i++){
 			const cards  = document.createElement('div') ;
 			Object.assign(cards, {
-				className: "cards col-lg-4",
+				className: "cards col-sm-3",
 				id: `${info.info[i].name}`
 			})
 			cards.innerHTML = `<div class="card-front"></div><div class="card-back"><h2>${info.info[i].name}</h2></div></div>`;

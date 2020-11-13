@@ -3,8 +3,14 @@
 
 {% block body %}
 
-	{{ city }}
-
-	<h3>{{ links }}</h3>
+	<div id="city-photo">
+		<img src="..\..\static\travels\foto viaggi\Travels-logo\default.png">
+	</div>	
+	{% for i in city %}
+		<h1 id="cityName">{{ i }}</h1>
+	{% endfor %}
+	
+	<h3 id="cityName">{{ links }}</h3>
+	
 
 {% endblock %}

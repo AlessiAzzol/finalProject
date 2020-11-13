@@ -85,9 +85,11 @@ def city(request):
     response = requests.get("https://api.teleport.org/api/cities/?search="+ str(city)).json()
     matching_cities = response.get("_embedded").get("city:search-results")
     full_name = [i.get("matching_full_name") for i in matching_cities]
-    links = [i.get("_links") for i in matching_cities]
-    ##my_area = urban_area.get('_links').get('ua:item')
+    links = [i.get("_links").get("city:item").get("href") for i in matching_cities]
+    res = dict(zip(full_name, links))
+    ##test = requests.get(links[0].get("city:item").get("href")).json()
+    ##my_area =[i.get('ua:item') for i in  links]
     ##test = [ i for i in my_area if i.get('name').lower() == city.lower() ]
     ##links = response.get('_links').get('curies')
     ##test = [ i for i in urban_area if  i.get('name') == city]
-    return render(request, "travels/city.html", {"city": full_name, "links": links})
+    return render(request, "travels/city.html", {"city": full_name, "links": res })

@@ -58,12 +58,17 @@
 
 {% else %}
     <main class="parallax">  
-        <div class="parallax__group">          
-            <div class="layer static-one"></div>      
+        <div class="parallax__group"> 
+            <section class="section-1">
+                <div class="layer static-one"></div>
+                <div class="layer static-one2"></div>
+            </section>           
             <div class="layer static-two"></div>
+            
             <div class="layer static-three"></div>
+               
             <div class="layer static-four">
-<!--
+
                 <div id="search-bar" class="search-container">
                     <form action="{% url 'city' %}" method="post">
                         {% csrf_token %}
@@ -76,7 +81,7 @@
                 <div id="da-metterePicture"  class="container">
                     <div id="pictures" class="row justify-content-between"></div>
 
-                </div>-->
+                </div>
             </div>
 
         </div>
